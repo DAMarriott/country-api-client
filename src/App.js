@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Redirect } from "react-router-dom";
+import Home from "./views/Home";
+import CountryDetail from "./views/CountryDetail";
+import Header from "./components/Header";
+import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: "light"
+    };
+  }
+
+  handleThemeSwitch = () => {
+    this.setState({
+      theme: this.state.theme === "light" ? "dark" : "light"
+    });
+  };
+
+  render() {
+    return (
+      <div className={"body-theme " + this.state.theme}>
+        <Header handleThemeSwitch={this.handleThemeSwitch} />
+        <main className="App__main">
+          <Route exact path="/" children={<Home />} />
+          <Route path={"/:id"} children={<CountryDetail />} />
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
