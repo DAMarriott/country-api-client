@@ -16,23 +16,27 @@ class Home extends Component {
   }
 
   filterChange(value) {
-    console.log(value);
-    const filteredItems = this.state.items.filter(
-      item => item.region === value
-    );
-    this.setState({
-      filteredItems
-    });
+    if (value !== "") {
+      const filteredItems = this.state.items.filter(
+        item => item.region === value
+      );
+      this.setState({
+        filteredItems
+      });
+    } else {
+      const filteredItems = null;
+      this.setState({
+        filteredItems
+      });
+    }
   }
 
   handleInputChange(textInputValue) {
-    console.log(textInputValue);
     const filteredItems = this.state.items.filter(item =>
       // Uses includes instead of indexOf to intentionally string match the keyword/query
       // e.g. Republic of China...
       item.name.toLowerCase().includes(textInputValue)
     );
-    console.log(filteredItems);
     this.setState({
       filteredItems
     });
@@ -60,7 +64,6 @@ class Home extends Component {
 
   render() {
     const { items, filteredItems } = this.state;
-    console.log(this.state.items);
     return (
       <div>
         <SearchBar
@@ -68,6 +71,7 @@ class Home extends Component {
           handleInputChange={val => this.handleInputChange(val)}
         />
         <FilterForm filterChange={val => this.filterChange(val)} />
+        <p className="click">Click a country for more details.</p>
         <CountryAPI items={filteredItems ? filteredItems : items} />
       </div>
     );

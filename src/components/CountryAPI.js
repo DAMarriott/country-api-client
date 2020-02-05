@@ -5,7 +5,6 @@ export default class CountryAPI extends React.Component {
   render() {
     return (
       <ul>
-        <p>Click a country for more details.</p>
         {this.props.items.map(items => (
           <li key={items.name}>
             <Link to={`/${items.name}`}>

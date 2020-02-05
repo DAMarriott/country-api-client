@@ -19,11 +19,21 @@ export default function CountryDetail({ items }) {
       <Link to="/">Go back</Link>
       <h2>{country && country.name}</h2>
       <img src={country && country.flag} />
-      <p>Region: {country && country.region}</p>
-      <p>Main Language: {country && country.languages[0].name}</p>
-      <p>Main Currency: {country && country.currencies[0].name}</p>
-      <p>Capital: {country && country.capital}</p>
-      <p>Population: {country && country.population}</p>
+      <div>
+        <p>Region: {country && country.region}</p>
+        <p>Capital: {country && country.capital}</p>
+        <p>Population: {country && country.population}</p>
+      </div>
+      <div>
+        <p>Main Language: {country && country.languages[0].name}</p>
+        <p>Main Currency: {country && country.currencies[0].name}</p>
+      </div>
+      <div>
+        <p>Bordering Countries</p>
+        <Link to={"/" + (country && country.borders[0])}>
+          {country && country.borders[0]}
+        </Link>
+      </div>
     </div>
   );
 }

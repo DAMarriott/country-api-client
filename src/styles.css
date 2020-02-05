@@ -6,34 +6,47 @@ body {
   letter-spacing: 0.1em;
 }
 
+.click {
+  height: 5px;
+}
+
 main {
   padding: 10px;
   text-align: center;
 }
-
 main ul {
   padding: 0;
   margin: 0;
-  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
 main li {
   list-style: none;
-  background-color: #c0d1e2;
-  border: 1x solid rgb(61, 84, 102);
-  padding: 5%;
+  background-color: #faf5f1;
+  border: 1px solid #dfdbd9;
+  padding: 1.5%;
   margin: 5%;
   border-radius: 4%;
+  height: auto;
 }
-
+@media screen and (min-width: 768px) {
+  main li {
+    min-width: 20%;
+    max-width: 20%;
+    flex: 1;
+    margin: 2.5%;
+  }
+}
+main li:hover {
+  background-color: #96a4b3;
+}
 main li h3 {
   margin: 3px;
 }
-
 main li p {
   margin: 2px;
 }
-
 main li a {
   color: black;
   text-decoration: none;
@@ -46,12 +59,25 @@ img {
 header {
   height: 100px;
   top: 0;
-  border-bottom: 1px solid rgb(61, 84, 102);
+  border-bottom: 1px solid #dfdbd9;
 }
-
 header * {
   padding: 5px;
   margin-top: 30px;
+}
+header span {
+  font-size: small;
+  margin-left: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+header p {
+  font-size: large;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-left: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .dark-toggle {
@@ -71,37 +97,30 @@ header * {
   float: left;
 }
 
-header span {
-  font-size: small;
-}
-
-header p {
-  font-size: large;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-header p,
-header span {
-  margin-left: 15px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 form {
   width: 50%;
+  margin-top: 20px;
 }
-
 form select {
   width: 100%;
-  height: auto;
+  height: 45px;
+  border-radius: 8%;
 }
+form ul {
+  margin: -1px 0 0 0;
+}
+
 .searchbar {
   width: 90%;
-
   margin: 20px;
+  display: flex;
 }
-
+@media screen and (min-width: 768px) {
+  .searchbar {
+    width: 50%;
+    margin-right: 0;
+  }
+}
 .searchbar input {
   height: 50px;
   border-radius: 7px;
@@ -110,45 +129,48 @@ form select {
 
 fieldset {
   border: none;
+  margin-left: 8px;
+}
+@media screen and (min-width: 768px) {
+  fieldset {
+    width: 50%;
+  }
 }
 
 .light {
   background: #e6e1e1;
   color: #15202b;
 }
-
 .light header {
-  background: #c0d1e2;
+  background: #faf5f1;
   color: #15202b;
 }
+
 .dark {
-  background: rgb(21, 32, 43);
+  background: #15202b;
   color: #fff;
 }
-
 .dark header {
-  background: rgb(21, 32, 43);
+  background: #15202b;
+  color: seashell;
+  border-bottom: 1px solid #3d5466;
+}
+.dark main li {
+  background-color: #15202b;
+  border: 1px solid #3d5466;
+}
+.dark main li:hover {
+  background-color: #25384b;
+}
+.dark main li h3 {
   color: seashell;
 }
-
-.dark main li {
-  list-style: none;
-  background-color: rgb(21, 32, 43);
-  border: 1px solid rgb(61, 84, 102);
-  padding: 5%;
-  margin: 5%;
-  border-radius: 4%;
+.dark main li p {
+  color: seashell;
 }
-
 .dark button {
   background-color: #43484e;
   color: seashell;
 }
 
-.dark main li h3 {
-  color: seashell;
-}
-
-.dark main li p {
-  color: seashell;
-}
+/*# sourceMappingURL=styles.css.map */
