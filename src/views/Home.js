@@ -11,15 +11,21 @@ class Home extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      filteredItems: []
+      filteredItems: null
     };
   }
 
   handleInputChange(textInputValue) {
+    console.log(textInputValue);
+    const filteredItems = this.state.items.filter(item =>
+      // Uses includes instead of indexOf to intentionally string match the keyword/query
+      // e.g. Republic of China...
+      item.name.toLowerCase().includes(textInputValue)
+    );
+    console.log(filteredItems);
     this.setState({
-      filteredItems: this.state.items.find(textInputValue)
+      filteredItems
     });
-    console.log(this.state.filteredItems);
   }
 
   componentDidMount() {
@@ -43,17 +49,15 @@ class Home extends Component {
   }
 
   render() {
+    const { items, filteredItems } = this.state;
     return (
       <div>
         <SearchBar
           inputRef={input => (this.textInput = input)}
-          handleInputChange={this.handleInputChange}
+          handleInputChange={val => this.handleInputChange(val)}
         />
         <FilterForm />
-        <CountryAPI
-          items={this.state.items}
-          filteredItems={this.state.filteredItems}
-        />
+        <CountryAPI items={filteredItems ? filteredItems : items} />
       </div>
     );
   }

@@ -5,7 +5,7 @@ export default class SearchBar extends React.Component {
     event.preventDefault();
 
     // By giving the input the `ref` attribute, we can access it anywhere
-    const textInputValue = this.ref.input.value;
+    const textInputValue = event.target.value.toLowerCase();
 
     // Submit the value to the parent component
     this.props.handleInputChange(textInputValue);
@@ -19,7 +19,7 @@ export default class SearchBar extends React.Component {
           type="search"
           id="search"
           ref="input"
-          onChange={this.handleChangeEvent}
+          onChange={e => this.handleChangeEvent(e)}
           placeholder="Search for a country..."
         />
       </div>

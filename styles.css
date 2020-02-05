@@ -1,21 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap");
-
 html {
   width: 100%;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: var(--lightBg);
-
   --lightBtn: #fe016c;
   --lightBg: #fff;
   --lightColor: #232323;
 }
 
-html[data-theme="dark"] {
+html[data-theme=dark] {
   background: var(--lightBg);
   --lightBtn: #ffbd07;
   --lightBg: #232323;
@@ -41,6 +38,8 @@ html.transition,
 html.transition *,
 html.transition *:before,
 html.transition *:after {
-  transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms !important;
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
   transition-delay: 0 !important;
 }
+
+/*# sourceMappingURL=styles.css.map */
