@@ -4,7 +4,12 @@ export default class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <p>Where in the world?</p>
+        <div className="header-name">
+          <p>where</p>
+          <span>in the</span>
+          <p>world?</p>
+        </div>
+
         <button
           className="dark-toggle"
           type="button"

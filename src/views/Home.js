@@ -15,6 +15,16 @@ class Home extends Component {
     };
   }
 
+  filterChange(value) {
+    console.log(value);
+    const filteredItems = this.state.items.filter(
+      item => item.region === value
+    );
+    this.setState({
+      filteredItems
+    });
+  }
+
   handleInputChange(textInputValue) {
     console.log(textInputValue);
     const filteredItems = this.state.items.filter(item =>
@@ -50,13 +60,14 @@ class Home extends Component {
 
   render() {
     const { items, filteredItems } = this.state;
+    console.log(this.state.items);
     return (
       <div>
         <SearchBar
           inputRef={input => (this.textInput = input)}
           handleInputChange={val => this.handleInputChange(val)}
         />
-        <FilterForm />
+        <FilterForm filterChange={val => this.filterChange(val)} />
         <CountryAPI items={filteredItems ? filteredItems : items} />
       </div>
     );
